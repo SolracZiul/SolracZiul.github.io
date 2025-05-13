@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Armazém do Sítio</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; color: #333; }
+    header, footer { background: #88b04b; color: white; text-align: center; padding: 15px; }
+    .container { max-width: 800px; margin: 20px auto; padding: 10px; }
+    .produto { background: #fff; padding: 15px; margin: 10px 0; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; }
+    .produto button { background: #25D366; color: white; border: none; padding: 8px; cursor: pointer; }
+    .produto button:hover { background: #1ebd5a; }
+    #carrinho { margin-top: 20px; }
+    .btn-finalizar { background: #ff6600; color: white; padding: 10px; border: none; width: 100%; cursor: pointer; }
+    .btn-finalizar:hover { background: #e65c00; }
+    input, select { width: 100%; padding: 10px; margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Armazém do Sítio</h1>
+  <p>Produtos naturais direto da roça</p>
+</header>
+
+<div class="container">
+  <h2>Catálogo de Produtos</h2>
+
+  <div class="produto">
+    <span>Tomate Orgânico - R$ 5,00/kg</span>
+    <button onclick="adicionarProduto('Tomate Orgânico', 5.00)">Adicionar</button>
+  </div>
+
+  <div class="produto">
+    <span>Doce de Leite Artesanal - R$ 15,00</span>
+    <button onclick="adicionarProduto('Doce de Leite Artesanal', 15.00)">Adicionar</button>
+  </div>
+
+  <div id="carrinho">
+    <h3>Carrinho</h3>
+    <ul id="itens"></ul>
+    <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
+
+    <h3>Entrega</h3>
+    <input type="text" id="nome" placeholder="Seu nome" />
+    <input type="text" id="endereco" placeholder="Endereço de entrega" />
+    <input type="text" id="telefone" placeholder="Telefone/WhatsApp" />
+    <label><input type="checkbox" id="salvarCliente" /> Salvar informações para próxima compra</label>
+    
+    <button class="btn-finalizar" onclick="finalizarPedido()">Finalizar Pedido</button>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Armazém do Sítio</p>
+</footer>
+
+<script>
+  let carrinho = [];
+  let total = 0;
+
+  function adicionarProduto(nome, preco) {
+    carrinho.push({ nome, preco });
+    total += preco;
+    atualizarCarrinho();
+  }
+
+  function atualizarCarrinho() {
+    const itens = document.getElementById("itens");
+    const totalEl = document.getElementById("total");
+    itens.innerHTML = "";
+    carrinho.forEach((item) => {
+      const li = document.createElement("li");
+      li.innerText = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+      itens.appendChild(li);
+    });
+    totalEl.innerText = total.toFixed(2);
+  }
+
+  function finalizarPedido() {
+    const nome = document.getElementById("nome").value;
+    const endereco = document.getElementById("endereco").value;
+    const telefone = document.getElementById("telefone").value;
+    const salvar = document.getElementById("salvarCliente").checked;
+
+    if (!nome || !endereco || !telefone) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    if (salvar) {
+      localStorage.setItem("clienteArmazem", JSON.stringify({ nome, endereco, telefone }));
+    }
+
+    let mensagem = `Olá! Quero fazer um pedido:
+
+`;
+    carrinho.forEach(item => {
+      mensagem += `• ${item.nome} - R$ ${item.preco.toFixed(2)}
+`;
+    });
+    mensagem += `
+Total: R$ ${total.toFixed(2)}
+`;
+    mensagem += `
+Entrega para: ${nome}
+Endereço: ${endereco}
+Telefone: ${telefone}`;
+    mensagem += `
+
+Pagamento via Pix (chave será enviada pelo WhatsApp).`;
+
+    const numero = "5541999999999";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+  }
+
+  window.onload = () => {
+    const cliente = JSON.parse(localStorage.getItem("clienteArmazem"));
+    if (cliente) {
+      document.getElementById("nome").value = cliente.nome;
+      document.getElementById("endereco").value = cliente.endereco;
+      document.getElementById("telefone").value = cliente.telefone;
+    }
+  };
+</script>
+
+</body>
+</html>
