@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Armazém do Sítio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Armazém do Sítio</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="carrinho.html">Carrinho</a>
+    </nav>
+  </header>
+  <main>
+    <section class="produto">
+      <h2>Tomate Orgânico</h2>
+      <p>R$ 5,00 / kg</p>
+      <button onclick="adicionarAoCarrinho('Tomate Orgânico', 5)">Adicionar ao Carrinho</button>
+    </section>
+    <section class="produto">
+      <h2>Doce de Leite Artesanal</h2>
+      <p>R$ 15,00 / pote</p>
+      <button onclick="adicionarAoCarrinho('Doce de Leite Artesanal', 15)">Adicionar ao Carrinho</button>
+    </section>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>
