@@ -87,15 +87,17 @@ function finalizarPedido() {
   const endereco = document.getElementById("endereco").value;
   const entrega = document.querySelector('input[name="entrega"]:checked').value;
 
-  let msg = "Olá! Quero fazer um pedido:\\n\\n";
+  let msg = "Olá! Quero fazer um pedido:\n\n";
   carrinho.forEach(item => {
-    msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}\\n`;
+    msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}\n`;
   });
-  msg += `\\nTotal: R$ ${carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0).toFixed(2)}`;
+
+  msg += `\nTotal: R$ ${carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0).toFixed(2)}\n`;
+
   if (entrega === "entrega") {
-    msg += `\\nEntregar para: ${nome}, CPF: ${cpf}, Tel: ${telefone}, Endereço: ${endereco}`;
+    msg += `Entregar para: ${nome}, CPF: ${cpf}, Tel: ${telefone}, Endereço: ${endereco}`;
   } else {
-    msg += "\\nRetirada na loja";
+    msg += "Retirada na loja";
   }
 
   const link = "https://wa.me/5541999999999?text=" + encodeURIComponent(msg);
