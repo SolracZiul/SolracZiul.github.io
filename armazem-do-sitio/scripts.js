@@ -3,41 +3,48 @@ const produtos = [
     nome: "Tomate Orgânico",
     preco: 5,
     imagem: "img/tomate.jpg",
-    unidade: "kg"
+    unidadePadrao: "kg",
+    opcoesUnidade: ["kg"]
   },
   {
     nome: "Alface Crespa",
     preco: 3,
     imagem: "img/alface.jpg",
-    unidade: "unidade"
+    unidadePadrao: "unidade",
+    opcoesUnidade: ["unidade"]
   },
   {
     nome: "Maçã Fuji",
     preco: 6,
     imagem: "img/maca.jpg",
-    unidade: "kg"
+    unidadePadrao: "kg",
+    opcoesUnidade: ["kg", "unidade"]
   },
   {
     nome: "Cenoura",
     preco: 4,
     imagem: "img/cenoura.jpg",
-    unidade: "kg"
+    unidadePadrao: "kg",
+    opcoesUnidade: ["kg"]
   },
   {
     nome: "Doce de Leite Artesanal",
     preco: 15,
     imagem: "img/doce.jpg",
-    unidade: "litro"
+    unidadePadrao: "litro",
+    opcoesUnidade: ["litro", "pote"]
   },
   {
     nome: "Banana Prata",
     preco: 5,
     imagem: "img/banana.jpg",
-    unidade: "kg"
+    unidadePadrao: "kg",
+    opcoesUnidade: ["kg", "penca"]
   }
 ];
 
 let carrinho = [];
+let produtoSelecionado = null;
 
 function carregarProdutos() {
   const container = document.getElementById("produtos");
@@ -47,19 +54,53 @@ function carregarProdutos() {
       <div class="produto">
         <img src="${p.imagem}" alt="${p.nome}" />
         <h3>${p.nome}</h3>
-        <p>R$ ${p.preco.toFixed(2)} / ${p.unidade}</p>
-        <input type="number" id="qtd-${i}" min="1" value="1" />
-        <button onclick="adicionarAoCarrinho(${i})">Adicionar</button>
+        <p>R$ ${p.preco.toFixed(2)} / ${p.unidadePadrao}</p>
+        <button onclick="abrirPopup(${i})">Adicionar</button>
       </div>
     `;
   });
 }
 
-function adicionarAoCarrinho(index) {
-  const qtd = parseInt(document.getElementById(`qtd-${index}`).value) || 1;
-  const item = produtos[index];
-  carrinho.push({ ...item, quantidade: qtd });
+function abrirPopup(index) {
+  produtoSelecionado = produtos[index];
+  document.getElementById("popup-nome").textContent = produtoSelecionado.nome;
+  document.getElementById("popup-img").src = produtoSelecionado.imagem;
+  document.getElementById("popup-quantidade").value = 1;
+
+  const select = document.getElementById("popup-unidade");
+  select.innerHTML = "";
+  produtoSelecionado.opcoesUnidade.forEach(un => {
+    const opt = document.createElement("option");
+    opt.value = un;
+    opt.textContent = un;
+    select.appendChild(opt);
+  });
+
+  document.getElementById("popup-produto").style.display = "flex";
+}
+
+function fecharPopup() {
+  document.getElementById("popup-produto").style.display = "none";
+}
+
+function adicionarAoCarrinhoFinal() {
+  const quantidade = parseInt(document.getElementById("popup-quantidade").value);
+  const unidadeEscolhida = document.getElementById("popup-unidade").value;
+
+  if (!quantidade || quantidade < 1) {
+    alert("Escolha uma quantidade válida.");
+    return;
+  }
+
+  carrinho.push({
+    nome: produtoSelecionado.nome,
+    preco: produtoSelecionado.preco,
+    quantidade: quantidade,
+    unidade: unidadeEscolhida
+  });
+
   document.getElementById("carrinho-count").innerText = carrinho.length;
+  fecharPopup();
 }
 
 function toggleCarrinho() {
@@ -92,7 +133,8 @@ function finalizarPedido() {
     msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}\n`;
   });
 
-  msg += `\nTotal: R$ ${carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0).toFixed(2)}\n`;
+  const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
+  msg += `\nTotal: R$ ${total.toFixed(2)}\n`;
 
   if (entrega === "entrega") {
     msg += `Entregar para: ${nome}, CPF: ${cpf}, Tel: ${telefone}, Endereço: ${endereco}`;
