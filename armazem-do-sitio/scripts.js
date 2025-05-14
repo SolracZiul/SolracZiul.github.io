@@ -83,6 +83,15 @@ function fecharPopup() {
   document.getElementById("popup-produto").style.display = "none";
 }
 
+// Fecha o pop-up com ESC ou clicando fora
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") fecharPopup();
+});
+window.addEventListener("click", (e) => {
+  const popup = document.getElementById("popup-produto");
+  if (e.target === popup) fecharPopup();
+});
+
 function adicionarAoCarrinhoFinal() {
   const quantidade = parseInt(document.getElementById("popup-quantidade").value);
   const unidadeEscolhida = document.getElementById("popup-unidade").value;
@@ -114,11 +123,44 @@ function mostrarCarrinho() {
   const totalSpan = document.getElementById("total");
   let total = 0;
   container.innerHTML = "";
-  carrinho.forEach(item => {
+
+  carrinho.forEach((item, index) => {
     total += item.preco * item.quantidade;
-    container.innerHTML += `<p>${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}</p>`;
+    container.innerHTML += `
+      <div style="margin-bottom:10px;">
+        <strong>${item.nome}</strong><br/>
+        <input type="number" min="1" value="${item.quantidade}" onchange="atualizarQuantidade(${index}, this.value)" style="width: 60px; margin-right: 5px;" />
+        <select onchange="atualizarUnidade(${index}, this.value)">
+          ${getUnidades(item.nome).map(u => `<option value="${u}" ${u === item.unidade ? "selected" : ""}>${u}</option>`).join("")}
+        </select>
+        <span>R$ ${(item.preco * item.quantidade).toFixed(2)}</span>
+        <button onclick="removerItem(${index})" style="margin-left: 10px;">❌</button>
+      </div>
+    `;
   });
+
   totalSpan.innerText = total.toFixed(2);
+}
+
+function getUnidades(nome) {
+  const produto = produtos.find(p => p.nome === nome);
+  return produto ? produto.opcoesUnidade : ["kg"];
+}
+
+function atualizarQuantidade(index, novaQtd) {
+  carrinho[index].quantidade = parseInt(novaQtd);
+  mostrarCarrinho();
+}
+
+function atualizarUnidade(index, novaUnidade) {
+  carrinho[index].unidade = novaUnidade;
+  mostrarCarrinho();
+}
+
+function removerItem(index) {
+  carrinho.splice(index, 1);
+  document.getElementById("carrinho-count").innerText = carrinho.length;
+  mostrarCarrinho();
 }
 
 function finalizarPedido() {
@@ -147,56 +189,3 @@ function finalizarPedido() {
 }
 
 window.onload = carregarProdutos;
-
-/* Estilo geral do pop-up */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-/* Conteúdo do pop-up */
-.popup-content {
-  background: #fff;
-  padding: 25px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: center;
-}
-
-/* Campos do formulário dentro do pop-up */
-.popup-content input,
-.popup-content select {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  width: 100%;
-  font-size: 1rem;
-}
-
-/* Botões do pop-up */
-.popup-content button {
-  background: #f2c14e;
-  border: none;
-  border-radius: 12px;
-  padding: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.popup-content button:hover {
-  background: #e0ac32;
-}
-
