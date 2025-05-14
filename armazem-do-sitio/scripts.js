@@ -2,37 +2,37 @@ const produtos = [
   {
     nome: "Tomate Orgânico",
     preco: 5,
-    imagem: "https://i.imgur.com/kK45MQO.jpg",
+    imagem: "img/tomate.jpg",
     unidade: "kg"
   },
   {
     nome: "Alface Crespa",
     preco: 3,
-    imagem: "https://i.imgur.com/oK3t3kC.jpg",
+    imagem: "img/alface.jpg",
     unidade: "unidade"
   },
   {
     nome: "Maçã Fuji",
     preco: 6,
-    imagem: "https://i.imgur.com/JXh6lFZ.jpg",
+    imagem: "img/maca.jpg",
     unidade: "kg"
   },
   {
     nome: "Cenoura",
     preco: 4,
-    imagem: "https://i.imgur.com/vQaKRpp.jpg",
+    imagem: "img/cenoura.jpg",
     unidade: "kg"
   },
   {
     nome: "Doce de Leite Artesanal",
     preco: 15,
-    imagem: "https://i.imgur.com/2duzhnk.jpg",
+    imagem: "img/doce.jpg",
     unidade: "litro"
   },
   {
     nome: "Banana Prata",
     preco: 5,
-    imagem: "https://i.imgur.com/dCEW9wv.jpg",
+    imagem: "img/banana.jpg",
     unidade: "kg"
   }
 ];
