@@ -1,5 +1,11 @@
 const produtos = [
   {
+    nome: "Tomate Orgânico",
+    preco: 5,
+    imagem: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    unidade: "kg"
+  },
+  {
     nome: "Alface Crespa",
     preco: 3,
     imagem: "https://images.unsplash.com/photo-1615484478091-8765c9c4a8c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
