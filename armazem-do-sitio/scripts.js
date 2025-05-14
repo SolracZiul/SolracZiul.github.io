@@ -37,7 +37,6 @@ const produtos = [
   }
 ];
 
-
 let carrinho = [];
 
 function carregarProdutos() {
