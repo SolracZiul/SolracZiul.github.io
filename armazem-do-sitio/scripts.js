@@ -4,7 +4,7 @@ const produtos = [
     preco: 5,
     imagem: "img/tomate.jpg",
     unidadePadrao: "kg",
-    opcoesUnidade: ["kg"]
+    opcoesUnidade: ["kg", "unidade"]
   },
   {
     nome: "Alface Crespa",
@@ -25,7 +25,7 @@ const produtos = [
     preco: 4,
     imagem: "img/cenoura.jpg",
     unidadePadrao: "kg",
-    opcoesUnidade: ["kg"]
+    opcoesUnidade: ["kg", "unidade"]
   },
   {
     nome: "Doce de Leite Artesanal",
