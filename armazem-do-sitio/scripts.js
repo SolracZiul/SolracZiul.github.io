@@ -147,3 +147,56 @@ function finalizarPedido() {
 }
 
 window.onload = carregarProdutos;
+
+/* Estilo geral do pop-up */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Conteúdo do pop-up */
+.popup-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+/* Campos do formulário dentro do pop-up */
+.popup-content input,
+.popup-content select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 1rem;
+}
+
+/* Botões do pop-up */
+.popup-content button {
+  background: #f2c14e;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.popup-content button:hover {
+  background: #e0ac32;
+}
+
