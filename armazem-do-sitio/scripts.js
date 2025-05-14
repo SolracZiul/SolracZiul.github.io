@@ -2,25 +2,37 @@ const produtos = [
   {
     nome: "Tomate Orgânico",
     preco: 5,
-    imagem: "https://images.unsplash.com/photo-1604908177522-40270d007e45?auto=format&fit=crop&w=400&q=80",
+    imagem: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=400&q=80",
     unidade: "kg"
   },
   {
     nome: "Alface Crespa",
     preco: 3,
-    imagem: "https://images.unsplash.com/photo-1600678891592-cb660bba0679?auto=format&fit=crop&w=400&q=80",
+    imagem: "https://images.unsplash.com/photo-1615484478091-8765c9c4a8c3?auto=format&fit=crop&w=400&q=80",
     unidade: "unidade"
   },
   {
     nome: "Maçã Fuji",
     preco: 6,
-    imagem: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=400&q=80",
+    imagem: "https://images.unsplash.com/photo-1574672287239-7e8a5c99d8bd?auto=format&fit=crop&w=400&q=80",
     unidade: "kg"
   },
   {
     nome: "Cenoura",
     preco: 4,
-    imagem: "https://images.unsplash.com/photo-1584270354949-1cdb4e2546fc?auto=format&fit=crop&w=400&q=80",
+    imagem: "https://images.unsplash.com/photo-1582515073490-39981397f1b5?auto=format&fit=crop&w=400&q=80",
+    unidade: "kg"
+  },
+  {
+    nome: "Doce de Leite Artesanal",
+    preco: 15,
+    imagem: "https://images.unsplash.com/photo-1611406374085-1a3a1f465d87?auto=format&fit=crop&w=400&q=80",
+    unidade: "litro"
+  },
+  {
+    nome: "Banana Prata",
+    preco: 5,
+    imagem: "https://images.unsplash.com/photo-1574226516831-e1dff420e12f?auto=format&fit=crop&w=400&q=80",
     unidade: "kg"
   }
 ];
