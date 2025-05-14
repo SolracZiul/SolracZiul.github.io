@@ -81,3 +81,43 @@ footer {
   padding: 15px;
   text-align: center;
 }
+
+/* Itens do carrinho */
+.carrinho-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Caixa de cada item */
+.carrinho-itens div {
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Campos de quantidade e unidade */
+.carrinho-itens input[type="number"],
+.carrinho-itens select {
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+/* Botão de remover ❌ */
+.carrinho-itens button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.carrinho-itens button:hover {
+  background: #d93636;
+}
