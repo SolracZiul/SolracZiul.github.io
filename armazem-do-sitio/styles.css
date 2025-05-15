@@ -209,3 +209,21 @@ footer {
   background: #e0ac32;
 }
 
+#carrinho-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  transform: translate(-50%, -50%);
+  z-index: 1100;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
