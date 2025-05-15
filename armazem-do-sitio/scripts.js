@@ -130,8 +130,9 @@ function mostrarCarrinho() {
     container.innerHTML += `
       <div class="carrinho-item">
         <div class="cabecalho" onclick="toggleDetalhes('${id}')">
-          <span>🞃</span> <strong>${item.nome}</strong>
+          <span id="icone-${id}">🞃</span> <strong>${item.nome}</strong>
         </div>
+
         <div class="detalhes" id="${id}">
           <input type="number" min="1" value="${item.quantidade}" onchange="atualizarQuantidade(${index}, this.value)" />
           <select onchange="atualizarUnidade(${index}, this.value)">
@@ -149,10 +150,14 @@ function mostrarCarrinho() {
 
 function toggleDetalhes(id) {
   const el = document.getElementById(id);
+  const icone = document.getElementById("icone-" + id);
+
   if (el.style.display === "none" || !el.style.display) {
     el.style.display = "block";
+    if (icone) icone.textContent = "🞁";
   } else {
     el.style.display = "none";
+    if (icone) icone.textContent = "🞃";
   }
 }
 
