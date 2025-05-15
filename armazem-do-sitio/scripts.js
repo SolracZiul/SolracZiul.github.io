@@ -126,20 +126,34 @@ function mostrarCarrinho() {
 
   carrinho.forEach((item, index) => {
     total += item.preco * item.quantidade;
+    const id = `item-${index}`;
     container.innerHTML += `
-      <div style="margin-bottom:10px;">
-        <strong>${item.nome}</strong><br/>
-        <input type="number" min="1" value="${item.quantidade}" onchange="atualizarQuantidade(${index}, this.value)" style="width: 60px; margin-right: 5px;" />
-        <select onchange="atualizarUnidade(${index}, this.value)">
-          ${getUnidades(item.nome).map(u => `<option value="${u}" ${u === item.unidade ? "selected" : ""}>${u}</option>`).join("")}
-        </select>
-        <span>R$ ${(item.preco * item.quantidade).toFixed(2)}</span>
-        <button onclick="removerItem(${index})" style="margin-left: 10px;">❌</button>
+      <div class="carrinho-item">
+        <div class="cabecalho" onclick="toggleDetalhes('${id}')">
+          <span>🞃</span> <strong>${item.nome}</strong>
+        </div>
+        <div class="detalhes" id="${id}">
+          <input type="number" min="1" value="${item.quantidade}" onchange="atualizarQuantidade(${index}, this.value)" />
+          <select onchange="atualizarUnidade(${index}, this.value)">
+            ${getUnidades(item.nome).map(u => `<option value="${u}" ${u === item.unidade ? "selected" : ""}>${u}</option>`).join("")}
+          </select>
+          <span>R$ ${(item.preco * item.quantidade).toFixed(2)}</span>
+          <button onclick="removerItem(${index})">❌</button>
+        </div>
       </div>
     `;
   });
 
   totalSpan.innerText = total.toFixed(2);
+}
+
+function toggleDetalhes(id) {
+  const el = document.getElementById(id);
+  if (el.style.display === "none" || !el.style.display) {
+    el.style.display = "block";
+  } else {
+    el.style.display = "none";
+  }
 }
 
 function getUnidades(nome) {
