@@ -141,12 +141,11 @@ footer {
 .carrinho-item .detalhes {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
   opacity: 0;
 }
 
 .carrinho-item .detalhes.aberto {
-  max-height: 500px;
   opacity: 1;
 }
 
