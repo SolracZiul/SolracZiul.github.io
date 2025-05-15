@@ -166,3 +166,50 @@ footer {
   cursor: pointer;
 }
 
+#categorias {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+#categorias button {
+  background: #f2c14e;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+#categorias button:hover {
+  background: #e0ac32;
+}
+
+/* Botão do carrinho flutuante */
+#botao-carrinho-flutuante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #f2c14e;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.3);
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+#botao-carrinho-flutuante:hover {
+  background: #e0ac32;
+}
+
