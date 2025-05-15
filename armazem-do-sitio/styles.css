@@ -37,17 +37,6 @@ nav#categorias button:hover {
   background: #e0ac32;
 }
 
-/* Botão OFERTAS vermelho */
-.btn-ofertas {
-  background-color: #d63447;
-  color: white;
-  box-shadow: 1px 2px 5px rgba(214, 52, 71, 0.7);
-}
-
-.btn-ofertas:hover {
-  background-color: #b02c3b;
-}
-
 /* Container dos produtos em grade */
 #produtos {
   max-width: 1100px;
