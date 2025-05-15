@@ -29,20 +29,16 @@
     <div class="grade-produtos" id="produtos"></div>
   </main>
 
-  <div id="carrinho-popup" class="popup">
-      <h2>Carrinho</h2>
-      <div id="carrinho-itens" class="carrinho-itens"></div>
-      <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
-
-      <button onclick="finalizarPedido()">Finalizar Pedido</button>
-      <button onclick="toggleCarrinho()">Fechar</button>
-    </div>
+  <!-- Carrinho Popup -->
+  <div id="carrinho-popup">
+    <h2>Carrinho</h2>
+    <div id="carrinho-itens" class="carrinho-itens"></div>
+    <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
+    <button onclick="finalizarPedido()">Finalizar Pedido</button>
+    <button onclick="toggleCarrinho()">Fechar</button>
   </div>
-  
-  <footer>
-    <p>&copy; 2025 Armazém do Sítio</p>
-  </footer>
 
+  <!-- Popup de Produto -->
   <div id="popup-produto" class="popup">
     <div class="popup-content">
       <h2 id="popup-nome"></h2>
@@ -57,6 +53,9 @@
       <button onclick="fecharPopup()">Cancelar</button>
     </div>
   </div>
-  
+
+  <footer>
+    <p>&copy; 2025 Armazém do Sítio</p>
+  </footer>
 </body>
 </html>
