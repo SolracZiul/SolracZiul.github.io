@@ -146,7 +146,7 @@ footer {
 }
 
 .carrinho-item .detalhes.aberto {
-  max-height: 200px;
+  max-height: 500px;
   opacity: 1;
 }
 
