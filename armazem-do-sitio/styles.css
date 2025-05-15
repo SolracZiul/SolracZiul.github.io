@@ -10,8 +10,8 @@ header {
   color: white;
   padding: 20px;
   text-align: center;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 nav {
   display: flex;
