@@ -230,3 +230,13 @@ window.onload = () => {
   carregarProdutos();
   atualizarContadorCarrinho();
 };
+
+// Fechar carrinho clicando fora
+window.addEventListener("click", function (e) {
+  const carrinhoPopup = document.getElementById("carrinho-popup");
+  const botaoCarrinho = document.getElementById("botao-carrinho-flutuante");
+
+  if (carrinhoPopup.style.display === "flex" && !carrinhoPopup.contains(e.target) && !botaoCarrinho.contains(e.target)) {
+    carrinhoPopup.style.display = "none";
+  }
+});
