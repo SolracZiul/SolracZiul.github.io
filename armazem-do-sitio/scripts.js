@@ -153,10 +153,12 @@ function toggleDetalhes(id) {
   const icone = document.getElementById("icone-" + id);
 
   if (el.classList.contains("aberto")) {
+    el.style.maxHeight = "0px";
     el.classList.remove("aberto");
     if (icone) icone.textContent = "🞃";
   } else {
     el.classList.add("aberto");
+    el.style.maxHeight = el.scrollHeight + "px";
     if (icone) icone.textContent = "🞁";
   }
 }
