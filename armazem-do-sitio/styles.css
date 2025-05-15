@@ -226,7 +226,7 @@ main {
   left: 50%;
   width: 95%;
   max-width: 600px;
-  max-height: 90vh;
+  max-height: 300vh;
   overflow-y: auto;
   background: white;
   border-radius: 20px;
