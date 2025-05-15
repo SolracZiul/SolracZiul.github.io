@@ -26,8 +26,8 @@
       <div id="carrinho-itens" class="carrinho-itens"></div>
       <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
 
-      <label><input type="radio" name="entrega" value="entrega" checked /> Entrega</label>
-      <label><input type="radio" name="entrega" value="retirada" /> Retirada</label>
+      <label><input type="radio" name="entrega" value="entrega" checked onchange="atualizarCamposEntrega()"> Entrega</label>
+      <label><input type="radio" name="entrega" value="retirada" onchange="atualizarCamposEntrega()"> Retirada</label>
 
       <div id="dados-entrega">
         <input type="text" id="nome" placeholder="Nome Completo">
