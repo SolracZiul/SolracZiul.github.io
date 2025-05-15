@@ -184,6 +184,20 @@ function removerItem(index) {
   mostrarCarrinho();
 }
 
+function atualizarCamposEntrega() {
+  const entrega = document.querySelector('input[name="entrega"]:checked').value;
+  const telefone = document.getElementById("telefone");
+  const endereco = document.getElementById("endereco");
+
+  if (entrega === "entrega") {
+    telefone.style.display = "block";
+    endereco.style.display = "block";
+  } else {
+    telefone.style.display = "none";
+    endereco.style.display = "none";
+  }
+}
+
 function finalizarPedido() {
   const nome = document.getElementById("nome").value;
   const cpf = document.getElementById("cpf").value;
