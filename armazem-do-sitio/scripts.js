@@ -4,61 +4,76 @@ const produtos = [
     preco: 5,
     imagem: "img/tomate.jpg",
     unidadePadrao: "kg",
-    opcoesUnidade: ["kg", "unidade"]
+    opcoesUnidade: ["kg"],
+    categoria: "verduras"
   },
   {
     nome: "Alface Crespa",
     preco: 3,
     imagem: "img/alface.jpg",
     unidadePadrao: "unidade",
-    opcoesUnidade: ["unidade"]
+    opcoesUnidade: ["unidade"],
+    categoria: "verduras"
   },
   {
     nome: "Maçã Fuji",
     preco: 6,
     imagem: "img/maca.jpg",
     unidadePadrao: "kg",
-    opcoesUnidade: ["kg", "unidade"]
+    opcoesUnidade: ["kg", "unidade"],
+    categoria: "frutas"
   },
   {
     nome: "Cenoura",
     preco: 4,
     imagem: "img/cenoura.jpg",
     unidadePadrao: "kg",
-    opcoesUnidade: ["kg", "unidade"]
+    opcoesUnidade: ["kg"],
+    categoria: "legumes"
   },
   {
     nome: "Doce de Leite Artesanal",
     preco: 15,
     imagem: "img/doce.jpg",
     unidadePadrao: "litro",
-    opcoesUnidade: ["litro", "pote"]
+    opcoesUnidade: ["litro", "pote"],
+    categoria: "ofertas"
   },
   {
     nome: "Banana Prata",
     preco: 5,
     imagem: "img/banana.jpg",
     unidadePadrao: "kg",
-    opcoesUnidade: ["kg", "penca"]
+    opcoesUnidade: ["kg", "penca"],
+    categoria: "frutas"
   }
 ];
 
 let carrinho = [];
 let produtoSelecionado = null;
+let categoriaAtual = "todas";
 
 function carregarProdutos() {
   const container = document.getElementById("produtos");
   container.innerHTML = "";
-  produtos.forEach((p, i) => {
+
+  const produtosFiltrados = categoriaAtual === "todas" ? produtos : produtos.filter(p => p.categoria === categoriaAtual);
+
+  produtosFiltrados.forEach((p, i) => {
     container.innerHTML += `
       <div class="produto">
         <img src="${p.imagem}" alt="${p.nome}" />
         <h3>${p.nome}</h3>
         <p>R$ ${p.preco.toFixed(2)} / ${p.unidadePadrao}</p>
-        <button onclick="abrirPopup(${i})">Adicionar</button>
+        <button onclick="abrirPopup(${produtos.indexOf(p)})">Adicionar</button>
       </div>
     `;
   });
+}
+
+function filtrarCategoria(categoria) {
+  categoriaAtual = categoria;
+  carregarProdutos();
 }
 
 function abrirPopup(index) {
@@ -83,7 +98,6 @@ function fecharPopup() {
   document.getElementById("popup-produto").style.display = "none";
 }
 
-// Fecha o pop-up com ESC ou clicando fora
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") fecharPopup();
 });
@@ -108,8 +122,12 @@ function adicionarAoCarrinhoFinal() {
     unidade: unidadeEscolhida
   });
 
-  document.getElementById("carrinho-count").innerText = carrinho.length;
+  atualizarContadorCarrinho();
   fecharPopup();
+}
+
+function atualizarContadorCarrinho() {
+  document.getElementById("carrinho-count-flutuante").innerText = carrinho.length;
 }
 
 function toggleCarrinho() {
@@ -132,7 +150,6 @@ function mostrarCarrinho() {
         <div class="cabecalho" onclick="toggleDetalhes('${id}')">
           <span id="icone-${id}">🞃</span> <strong>${item.nome}</strong>
         </div>
-
         <div class="detalhes" id="${id}">
           <input type="number" min="1" value="${item.quantidade}" onchange="atualizarQuantidade(${index}, this.value)" />
           <select onchange="atualizarUnidade(${index}, this.value)">
@@ -180,22 +197,8 @@ function atualizarUnidade(index, novaUnidade) {
 
 function removerItem(index) {
   carrinho.splice(index, 1);
-  document.getElementById("carrinho-count").innerText = carrinho.length;
+  atualizarContadorCarrinho();
   mostrarCarrinho();
-}
-
-function atualizarCamposEntrega() {
-  const entrega = document.querySelector('input[name="entrega"]:checked').value;
-  const telefone = document.getElementById("telefone");
-  const endereco = document.getElementById("endereco");
-
-  if (entrega === "entrega") {
-    telefone.style.display = "block";
-    endereco.style.display = "block";
-  } else {
-    telefone.style.display = "none";
-    endereco.style.display = "none";
-  }
 }
 
 function finalizarPedido() {
@@ -223,4 +226,7 @@ function finalizarPedido() {
   window.open(link, "_blank");
 }
 
-window.onload = carregarProdutos;
+window.onload = () => {
+  carregarProdutos();
+  atualizarContadorCarrinho();
+};
