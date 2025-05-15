@@ -222,3 +222,9 @@ function finalizarPedido() {
   const link = "https://wa.me/5541999999999?text=" + encodeURIComponent(msg);
   window.open(link, "_blank");
 }
+
+window.onload = () => {
+  filtrarCategoria("todas");
+  atualizarContadorCarrinho();
+};
+
