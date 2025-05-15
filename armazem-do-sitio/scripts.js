@@ -201,12 +201,6 @@ function removerItem(index) {
   mostrarCarrinho();
 }
 
-function finalizarPedido() {
-  const nome = document.getElementById("nome").value;
-  const cpf = document.getElementById("cpf").value;
-  const telefone = document.getElementById("telefone").value;
-  const endereco = document.getElementById("endereco").value;
-
   let msg = "Olá! Quero fazer um pedido:\n\n";
   carrinho.forEach(item => {
     msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}\n`;
@@ -214,8 +208,6 @@ function finalizarPedido() {
 
   const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
   msg += `\nTotal: R$ ${total.toFixed(2)}\n`;
-
-  msg += `Cliente: ${nome}, CPF: ${cpf}, Tel: ${telefone}, Endereço: ${endereco}`;
 
   const link = "https://wa.me/5541999999999?text=" + encodeURIComponent(msg);
   window.open(link, "_blank");
