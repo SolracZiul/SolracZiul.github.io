@@ -152,12 +152,12 @@ function toggleDetalhes(id) {
   const el = document.getElementById(id);
   const icone = document.getElementById("icone-" + id);
 
-  if (el.style.display === "none" || !el.style.display) {
-    el.style.display = "block";
-    if (icone) icone.textContent = "🞁";
-  } else {
-    el.style.display = "none";
+  if (el.classList.contains("aberto")) {
+    el.classList.remove("aberto");
     if (icone) icone.textContent = "🞃";
+  } else {
+    el.classList.add("aberto");
+    if (icone) icone.textContent = "🞁";
   }
 }
 
