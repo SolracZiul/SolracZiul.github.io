@@ -139,9 +139,15 @@ footer {
 }
 
 .carrinho-item .detalhes {
-  display: none;
-  margin-top: 5px;
-  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+  opacity: 0;
+}
+
+.carrinho-item .detalhes.aberto {
+  max-height: 200px;
+  opacity: 1;
 }
 
 .carrinho-item input,
