@@ -15,6 +15,16 @@ header {
   border-radius: 0
 }
 
+footer {
+  background: #88b04b;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 nav#categorias {
   display: flex;
   justify-content: center;
