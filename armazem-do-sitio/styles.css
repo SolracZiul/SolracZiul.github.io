@@ -237,3 +237,27 @@ main {
   padding: 20px;
   box-sizing: border-box;
 }
+
+.botoes-carrinho {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.botoes-carrinho button {
+  background: #f2c14e;
+  border: none;
+  border-radius: 20px;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+
+.botoes-carrinho button:hover {
+  background: #e0ac32;
+}
+
