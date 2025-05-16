@@ -165,6 +165,12 @@ function mostrarCarrinho() {
   totalSpan.innerText = total.toFixed(2);
 }
 
+function toggleCarrinho() {
+  const popup = document.getElementById("carrinho-popup");
+  popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+  mostrarCarrinho();
+}
+
 function toggleDetalhes(id) {
   const el = document.getElementById(id);
   const icone = document.getElementById("icone-" + id);
