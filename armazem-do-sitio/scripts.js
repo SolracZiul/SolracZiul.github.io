@@ -167,9 +167,18 @@ function mostrarCarrinho() {
 
 function toggleCarrinho() {
   const popup = document.getElementById("carrinho-popup");
-  popup.style.display = popup.style.display === "flex" ? "none" : "flex";
-  mostrarCarrinho();
+  if (popup.style.display === "flex") {
+    popup.style.display = "none";
+    voltarParaCarrinho(); // para resetar formulário se estava aberto
+  } else {
+    popup.style.display = "flex";
+  }
 }
+
+document.getElementById("carrinho-popup").onclick = function() {
+  this.style.display = "none";
+  voltarParaCarrinho();
+};
 
 function toggleDetalhes(id) {
   const el = document.getElementById(id);
