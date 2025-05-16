@@ -1,3 +1,9 @@
+window.onload = () => {
+  document.getElementById("carrinho-popup").style.display = "none";  // garante carrinho oculto
+  filtrarCategoria("todas");
+  atualizarContadorCarrinho();
+};
+
 const produtos = [
   {
     nome: "Tomate Orgânico",
@@ -130,12 +136,6 @@ function atualizarContadorCarrinho() {
   document.getElementById("carrinho-count-flutuante").innerText = carrinho.length;
 }
 
-function toggleCarrinho() {
-  const popup = document.getElementById("carrinho-popup");
-  popup.style.display = popup.style.display === "flex" ? "none" : "flex";
-  mostrarCarrinho();
-}
-
 function mostrarCarrinho() {
   const container = document.getElementById("carrinho-itens");
   const totalSpan = document.getElementById("total");
@@ -222,9 +222,4 @@ function finalizarPedido() {
   const link = "https://wa.me/5541999999999?text=" + encodeURIComponent(msg);
   window.open(link, "_blank");
 }
-
-window.onload = () => {
-  filtrarCategoria("todas");
-  atualizarContadorCarrinho();
-};
 
