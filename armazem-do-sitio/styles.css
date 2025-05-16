@@ -225,7 +225,7 @@ main {
   top: 50%;
   left: 50%;
   width: 95%;
-  max-width: 450px;
+  max-width: 600px;
   min-height: 300px;
   max-height: 95vh;
   overflow-y: auto;
@@ -234,8 +234,11 @@ main {
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
   transform: translate(-50%, -50%);
   z-index: 1100;
-  padding: 20px;
+  padding: 30px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .botoes-carrinho {
@@ -260,4 +263,5 @@ main {
 .botoes-carrinho button:hover {
   background: #e0ac32;
 }
+
 
