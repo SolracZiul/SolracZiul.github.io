@@ -34,17 +34,18 @@
   </main>
 
   <!-- Carrinho Popup -->
-  <div id="carrinho-popup" style="display: none;">
-    <div id="carrinho-conteudo">
-      <h2 style="text-align: center;">Carrinho</h2>
-      <div id="carrinho-itens" class="carrinho-itens"></div>
-      <p style="text-align: center; font-size: 1.1rem; margin-top: 20px;">
-        <strong>Total: R$ <span id="total">0.00</span></strong>
-      </p>
-      <div class="botoes-carrinho">
-        <button onclick="mostrarFormularioEntrega()">Finalizar Pedido</button>
+   <div id="carrinho-popup" class="popup" style="display:none;">
+     <div class="popup-content" onclick="event.stopPropagation()">
+      <div id="carrinho-conteudo">
+        <h2 style="text-align: center;">Carrinho</h2>
+        <div id="carrinho-itens" class="carrinho-itens"></div>
+        <p style="text-align: center; font-size: 1.1rem; margin-top: 20px;">
+          <strong>Total: R$ <span id="total">0.00</span></strong>
+        </p>
+        <div class="botoes-carrinho">
+          <button onclick="mostrarFormularioEntrega()">Finalizar Pedido</button>
+        </div>
       </div>
-    </div>
 
     <div id="formulario-entrega" style="display: none;">
       <h2 style="text-align: center;">Forma de Recebimento</h2>
