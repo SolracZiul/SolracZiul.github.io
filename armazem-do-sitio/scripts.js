@@ -10,7 +10,7 @@ const produtos = [
     preco: 5,
     imagem: "img/tomate.jpg",
     unidadePadrao: "kg",
-    opcoesUnidade: ["kg"],
+    opcoesUnidade: ["kg", "unidade"],
     categoria: "verduras"
   },
   {
@@ -34,7 +34,7 @@ const produtos = [
     preco: 4,
     imagem: "img/cenoura.jpg",
     unidadePadrao: "kg",
-    opcoesUnidade: ["kg"],
+    opcoesUnidade: ["kg", "unidade"],
     categoria: "legumes"
   },
   {
