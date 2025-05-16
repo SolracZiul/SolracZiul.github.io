@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Armazém do Sítio</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="scripts.js" defer></script>
@@ -11,7 +11,7 @@
   <header>
     <h1>Armazém do Sítio</h1>
   </header>
-  
+
   <nav id="categorias">
     <button onclick="filtrarCategoria('todas')">TODAS</button>
     <button class="btn-ofertas" onclick="filtrarCategoria('ofertas')">OFERTAS</button>
@@ -22,26 +22,57 @@
 
   <button id="botao-carrinho-flutuante" onclick="toggleCarrinho()" aria-label="Abrir carrinho">
     🛒
-    <span id="carrinho-count-flutuante" style="position:absolute; top:5px; right:5px; background:#d63447; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px; display:inline-block;">0</span>
+    <span
+      id="carrinho-count-flutuante"
+      style="position:absolute; top:5px; right:5px; background:#d63447; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px; display:inline-block;"
+      >0</span
+    >
   </button>
 
   <main>
     <div class="grade-produtos" id="produtos"></div>
   </main>
 
-<div id="carrinho-popup" style="display:none;">
-  <h2 style="text-align: center;">Carrinho</h2>
-  
-  <div id="carrinho-itens" class="carrinho-itens"></div>
-  
-  <p style="text-align: center; font-size: 1.1rem; margin-top: 20px;">
-    <strong>Total: R$ <span id="total">0.00</span></strong>
-  </p>
-  
-  <div class="botoes-carrinho">
-    <button onclick="finalizarPedido()">Finalizar Pedido</button>
+  <!-- Carrinho Popup -->
+  <div id="carrinho-popup" style="display: none;">
+    <div id="carrinho-conteudo">
+      <h2 style="text-align: center;">Carrinho</h2>
+      <div id="carrinho-itens" class="carrinho-itens"></div>
+      <p style="text-align: center; font-size: 1.1rem; margin-top: 20px;">
+        <strong>Total: R$ <span id="total">0.00</span></strong>
+      </p>
+      <div class="botoes-carrinho">
+        <button onclick="mostrarFormularioEntrega()">Finalizar Pedido</button>
+      </div>
+    </div>
+
+    <div id="formulario-entrega" style="display: none;">
+      <h2 style="text-align: center;">Forma de Recebimento</h2>
+      <label><input type="radio" name="tipoEntrega" value="entrega" onchange="atualizarFormulario()" /> Entrega</label>
+      <label><input type="radio" name="tipoEntrega" value="retirada" onchange="atualizarFormulario()" /> Retirada</label>
+
+      <div id="campos-comuns" style="margin-top: 15px;">
+        <input type="text" id="nome" placeholder="Nome Completo" />
+        <input type="text" id="cpf" placeholder="CPF" />
+      </div>
+
+      <div id="campos-entrega" style="display: none;">
+        <input type="text" id="telefone" placeholder="Telefone" />
+        <input type="text" id="endereco" placeholder="Endereço Completo" />
+      </div>
+
+      <select id="pagamento">
+        <option value="pix">Pix</option>
+        <option value="cartao">Cartão</option>
+        <option value="dinheiro">Dinheiro</option>
+      </select>
+
+      <div class="botoes-carrinho">
+        <button onclick="enviarPedido()">Enviar Pedido</button>
+        <button onclick="voltarParaCarrinho()">Voltar</button>
+      </div>
+    </div>
   </div>
-</div>
   
   <footer>
     <p>&copy; 2025 Armazém do Sítio</p>
