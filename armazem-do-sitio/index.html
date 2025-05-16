@@ -29,24 +29,49 @@
     <div class="grade-produtos" id="produtos"></div>
   </main>
 
-<div id="carrinho-popup" style="display:none;">
-  <h2 style="text-align: center;">Carrinho</h2>
-  
-  <div id="carrinho-itens" class="carrinho-itens"></div>
-  
-  <p style="text-align: center; font-size: 1.1rem; margin-top: 20px;">
-    <strong>Total: R$ <span id="total">0.00</span></strong>
-  </p>
-  
-  <div class="botoes-carrinho">
-    <button onclick="finalizarPedido()">Finalizar Pedido</button>
+  <!-- Carrinho Popup -->
+  <div id="carrinho-popup" class="popup">
+    <div class="popup-content">
+      <h2 style="text-align: center;">Carrinho</h2>
+      <div id="carrinho-itens" class="carrinho-itens"></div>
+      <p style="text-align: center; font-size: 1.1rem; margin-top: 20px;">
+        <strong>Total: R$ <span id="total">0.00</span></strong>
+      </p>
+      <div class="botoes-carrinho">
+        <button onclick="mostrarFormularioEntrega()">Finalizar Pedido</button>
+      </div>
+    </div>
   </div>
-</div>
-  
-  <footer>
-    <p>&copy; 2025 Armazém do Sítio</p>
-  </footer>
 
+  <!-- Formulário dentro do mesmo popup -->
+  <div id="formulario-entrega" style="display:none;">
+    <h2 style="text-align: center;">Forma de Recebimento</h2>
+    <label><input type="radio" name="tipoEntrega" value="entrega" onchange="atualizarFormulario()"> Entrega</label>
+    <label><input type="radio" name="tipoEntrega" value="retirada" onchange="atualizarFormulario()"> Retirada</label>
+
+    <div id="campos-comuns" style="margin-top: 15px;">
+      <input type="text" id="nome" placeholder="Nome Completo" />
+      <input type="text" id="cpf" placeholder="CPF" />
+    </div>
+
+    <div id="campos-entrega" style="display: none;">
+      <input type="text" id="telefone" placeholder="Telefone" />
+      <input type="text" id="endereco" placeholder="Endereço Completo" />
+    </div>
+
+    <select id="pagamento">
+      <option value="pix">Pix</option>
+      <option value="cartao">Cartão</option>
+      <option value="dinheiro">Dinheiro</option>
+    </select>
+
+    <div class="botoes-carrinho">
+      <button onclick="enviarPedido()">Enviar Pedido</button>
+      <button onclick="voltarParaCarrinho()">Voltar</button>
+    </div>
+  </div>
+
+  <!-- Popup de Produto -->
   <div id="popup-produto" class="popup">
     <div class="popup-content">
       <h2 id="popup-nome"></h2>
@@ -62,5 +87,8 @@
     </div>
   </div>
 
+  <footer>
+    <p>&copy; 2025 Armazém do Sítio</p>
+  </footer>
 </body>
 </html>
