@@ -1,26 +1,3 @@
-/* Apenas os trechos necessários */
-.popup {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1100;
-}
-.popup-content {
-  background: white;
-  border-radius: 20px;
-  max-width: 420px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 20px;
-  box-sizing: border-box;
-}
-/* Resto do CSS permanece o mesmo */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: #f9f6f1;
@@ -287,4 +264,5 @@ main {
 .botoes-carrinho button:hover {
   background: #e0ac32;
 }
+
 

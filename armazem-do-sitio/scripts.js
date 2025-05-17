@@ -279,9 +279,3 @@ function enviarPedido() {
   document.getElementById("formulario-entrega").style.display = "none";
 }
 
-
-
-function fecharCarrinho() {
-  document.getElementById("carrinho-popup").style.display = "none";
-  voltarParaCarrinho();
-}
