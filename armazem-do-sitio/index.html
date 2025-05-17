@@ -34,7 +34,9 @@
   </main>
 
   <!-- Carrinho Popup -->
-  <div id="carrinho-popup" style="display: none;">
+  <!-- Carrinho Popup com fundo escuro -->
+<div id="carrinho-popup" class="popup" style="display: none;" onclick="fecharCarrinho()">
+  <div class="popup-content" onclick="event.stopPropagation()">
     <div id="carrinho-conteudo">
       <h2 style="text-align: center;">Carrinho</h2>
       <div id="carrinho-itens" class="carrinho-itens"></div>
@@ -73,6 +75,7 @@
       </div>
     </div>
   </div>
+</div>
   
   <footer>
     <p>&copy; 2025 Armazém do Sítio</p>
