@@ -279,3 +279,14 @@ function enviarPedido() {
   document.getElementById("formulario-entrega").style.display = "none";
 }
 
+// Fecha o carrinho ao clicar fora dele
+window.addEventListener("click", (e) => {
+  const carrinhoPopup = document.getElementById("carrinho-popup");
+  const botaoCarrinho = document.getElementById("botao-carrinho-flutuante");
+
+  // Evita fechar quando clica no conteúdo interno ou no botão de abrir
+  if (carrinhoPopup.style.display === "flex" && !carrinhoPopup.contains(e.target) && e.target !== botaoCarrinho && !botaoCarrinho.contains(e.target)) {
+    carrinhoPopup.style.display = "none";
+  }
+});
+
