@@ -246,7 +246,7 @@ function enviarPedido() {
     msg += "📍 Tipo: Retirada na loja\n";
   }
 
-  const link = "https://wa.me/5541999999999?text=" + encodeURIComponent(msg);
+  const link = "https://wa.me/5541997351454?text=" + encodeURIComponent(msg);
   window.open(link, "_blank");
 
   // Reset
