@@ -253,22 +253,22 @@ function enviarPedido() {
   const telefone = document.getElementById("telefone")?.value || "";
   const endereco = document.getElementById("endereco")?.value || "";
 
-  let msg = "*Pedido do Armazém do Sítio*\n\n";
+  let msg = "📦 *Pedido do Armazém do Sítio*\n\n";
   carrinho.forEach(item => {
-    msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}%0A`;
+    msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}\n`;
   });
 
   const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
-  msg += `%0ATotal: R$ ${total.toFixed(2)}%0A%0A`;
-  msg += `*Cliente:*%0ANome: ${nome}%0ACPF: ${cpf}%0APagamento: ${pagamento}%0A`;
+  msg += `\nTotal: R$ ${total.toFixed(2)}\n\n`;
+  msg += `👤 *Cliente:*\nNome: ${nome}\nCPF: ${cpf}\nPagamento: ${pagamento}\n`;
 
   if (tipoEntrega === "entrega") {
-    msg += `Telefone: ${telefone}%0AEndereço: ${endereco}%0A`;
+    msg += `Telefone: ${telefone}\nEndereço: ${endereco}\n`;
   } else {
-    msg += "Tipo: Retirada na loja%0A";
+    msg += "Tipo: Retirada na loja\n";
   }
 
-  const link = "https://wa.me/5541999999999?text=" + msg;
+  const link = "https://wa.me/5541999999999?text=" + encodeURIComponent(msg);
   window.open(link, "_blank");
 
   // Limpar e fechar
@@ -278,6 +278,7 @@ function enviarPedido() {
   document.getElementById("carrinho-conteudo").style.display = "block";
   document.getElementById("formulario-entrega").style.display = "none";
 }
+
 
 // Fecha o carrinho ao clicar fora
 window.addEventListener("click", (e) => {
