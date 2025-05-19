@@ -238,7 +238,7 @@ function enviarPedido() {
 
   const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
   msg += `\n🧾 *Total:* R$ ${total.toFixed(2)}\n\n`;
-  msg += `👤 *Cliente:*\n📛 Nome: ${nome}\n🪪 CPF: ${cpf}\n💳 Pagamento: ${pagamento}\n`;
+  msg += `👤😭 *Cliente:*\n📛 Nome: ${nome}\n🪪 CPF: ${cpf}\n💳 Pagamento: ${pagamento}\n`;
 
   if (tipoEntrega === "entrega") {
     msg += `📞 Telefone: ${telefone}\n🏠 Endereço: ${endereco}\n`;
