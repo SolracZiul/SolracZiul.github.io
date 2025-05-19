@@ -253,7 +253,7 @@ function enviarPedido() {
   const telefone = document.getElementById("telefone")?.value || "";
   const endereco = document.getElementById("endereco")?.value || "";
 
-  let msg = "*Pedido do Armazém do Sítio*%0A%0A";
+  let msg = "*Pedido do Armazém do Sítio*\n\n";
   carrinho.forEach(item => {
     msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}%0A`;
   });
