@@ -253,14 +253,14 @@ function enviarPedido() {
   const telefone = document.getElementById("telefone")?.value || "";
   const endereco = document.getElementById("endereco")?.value || "";
 
-  let msg = "📦 *Pedido do Armazém do Sítio*%0A%0A";
+  let msg = "*Pedido do Armazém do Sítio*%0A%0A";
   carrinho.forEach(item => {
     msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}%0A`;
   });
 
   const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
   msg += `%0ATotal: R$ ${total.toFixed(2)}%0A%0A`;
-  msg += `👤 *Cliente:*%0ANome: ${nome}%0ACPF: ${cpf}%0APagamento: ${pagamento}%0A`;
+  msg += `*Cliente:*%0ANome: ${nome}%0ACPF: ${cpf}%0APagamento: ${pagamento}%0A`;
 
   if (tipoEntrega === "entrega") {
     msg += `Telefone: ${telefone}%0AEndereço: ${endereco}%0A`;
@@ -268,7 +268,7 @@ function enviarPedido() {
     msg += "Tipo: Retirada na loja%0A";
   }
 
-  const link = "https://wa.me/5541997351454?text=" + encodeURIComponent(msg);
+  const link = "https://wa.me/5541999999999?text=" + msg;
   window.open(link, "_blank");
 
   // Limpar e fechar
