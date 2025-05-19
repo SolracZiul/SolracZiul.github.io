@@ -279,14 +279,14 @@ function enviarPedido() {
   document.getElementById("formulario-entrega").style.display = "none";
 }
 
-// Fecha o carrinho ao clicar fora dele
+// Fecha o carrinho ao clicar fora
 window.addEventListener("click", (e) => {
   const carrinhoPopup = document.getElementById("carrinho-popup");
-  const botaoCarrinho = document.getElementById("botao-carrinho-flutuante");
+  const carrinhoInterno = carrinhoPopup.querySelector("div");
 
-  // Evita fechar quando clica no conteúdo interno ou no botão de abrir
-  if (carrinhoPopup.style.display === "flex" && !carrinhoPopup.contains(e.target) && e.target !== botaoCarrinho && !botaoCarrinho.contains(e.target)) {
+  if (e.target === carrinhoPopup && carrinhoPopup.style.display === "flex") {
     carrinhoPopup.style.display = "none";
   }
 });
+
 
