@@ -237,26 +237,25 @@ function enviarPedido() {
   });
 
   const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
-  msg += `\nTotal: R$ ${total.toFixed(2)}\n\n`;
-  msg += `👤 *Cliente:*\nNome: ${nome}\nCPF: ${cpf}\nPagamento: ${pagamento}\n`;
+  msg += `\n🧾 *Total:* R$ ${total.toFixed(2)}\n\n`;
+  msg += `👤 *Cliente:*\n📛 Nome: ${nome}\n🪪 CPF: ${cpf}\n💳 Pagamento: ${pagamento}\n`;
 
   if (tipoEntrega === "entrega") {
-    msg += `Telefone: ${telefone}\nEndereço: ${endereco}\n`;
+    msg += `📞 Telefone: ${telefone}\n🏠 Endereço: ${endereco}\n`;
   } else {
-    msg += "Tipo: Retirada na loja\n";
+    msg += "📍 Tipo: Retirada na loja\n";
   }
 
-  const link = "https://wa.me/5541997351454?text=" + encodeURIComponent(msg);
+  const link = "https://wa.me/5541999999999?text=" + encodeURIComponent(msg);
   window.open(link, "_blank");
 
-  // Limpar e fechar
+  // Reset
   carrinho = [];
   atualizarContadorCarrinho();
   document.getElementById("carrinho-popup").style.display = "none";
   document.getElementById("carrinho-conteudo").style.display = "block";
   document.getElementById("formulario-entrega").style.display = "none";
 }
-
 
 // Fecha o carrinho ao clicar fora
 window.addEventListener("click", (e) => {
