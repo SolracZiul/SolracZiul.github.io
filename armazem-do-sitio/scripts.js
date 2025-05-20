@@ -231,7 +231,7 @@ function enviarPedido() {
   const telefone = document.getElementById("telefone")?.value || "";
   const endereco = document.getElementById("endereco")?.value || "";
 
-  let msg = `📦 *Pedido do Armazém do Sítio*\n\n`;
+  let msg = `*Pedido do Armazém do Sítio*\n\n`;
   carrinho.forEach(item => {
     msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}\n`;
   });
@@ -239,7 +239,7 @@ function enviarPedido() {
   const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
   msg += `\nTotal: R$ ${total.toFixed(2)}\n\n`;
 
-  msg += `👤 *Cliente:*\nNome: ${nome}\nCPF: ${cpf}\nPagamento: ${pagamento}\n`;
+  msg += `*Cliente:*\nNome: ${nome}\nCPF: ${cpf}\nPagamento: ${pagamento}\n`;
 
   if (tipoEntrega === "entrega") {
     msg += `Telefone: ${telefone}\nEndereço: ${endereco}\n`;
