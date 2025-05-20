@@ -231,11 +231,7 @@ function enviarPedido() {
   const telefone = document.getElementById("telefone")?.value || "";
   const endereco = document.getElementById("endereco")?.value || "";
 
-  const emojiPedido = String.fromCodePoint(0x1F4E6);  // 📦
-  const emojiCliente = String.fromCodePoint(0x1F464); // 👤
-  const emojiProduto = String.fromCodePoint(0x1F6D2); // 🛒 (opcional)
-
-  let msg = `${emojiPedido} *Pedido do Armazém do Sítio*\n\n`;
+  let msg = `📦 *Pedido do Armazém do Sítio*\n\n`;
   carrinho.forEach(item => {
     msg += `• ${item.nome} - ${item.quantidade} ${item.unidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}\n`;
   });
@@ -243,7 +239,7 @@ function enviarPedido() {
   const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
   msg += `\nTotal: R$ ${total.toFixed(2)}\n\n`;
 
-  msg += `${emojiCliente} *Cliente:*\nNome: ${nome}\nCPF: ${cpf}\nPagamento: ${pagamento}\n`;
+  msg += `👤 *Cliente:*\nNome: ${nome}\nCPF: ${cpf}\nPagamento: ${pagamento}\n`;
 
   if (tipoEntrega === "entrega") {
     msg += `Telefone: ${telefone}\nEndereço: ${endereco}\n`;
@@ -251,16 +247,17 @@ function enviarPedido() {
     msg += "Tipo: Retirada na loja\n";
   }
 
-  const link = "https://wa.me/5541999999999?text=" + encodeURIComponent(msg);
+  const link = "https://wa.me/5541997351454?text=" + encodeURIComponent(msg);
   window.open(link, "_blank");
 
-  // Limpar e fechar
+  // Limpar carrinho e fechar
   carrinho = [];
   atualizarContadorCarrinho();
   document.getElementById("carrinho-popup").style.display = "none";
   document.getElementById("carrinho-conteudo").style.display = "block";
   document.getElementById("formulario-entrega").style.display = "none";
 }
+
 
 // Fecha o carrinho ao clicar fora
 window.addEventListener("click", (e) => {
