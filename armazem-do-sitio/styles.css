@@ -336,3 +336,33 @@ main {
   font-size: 1rem;
   margin: 10px 0;
 }
+
+#lista-produtos {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-produto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f7f7f7;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.item-produto span {
+  flex: 1;
+}
+.item-produto button {
+  margin-left: 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
