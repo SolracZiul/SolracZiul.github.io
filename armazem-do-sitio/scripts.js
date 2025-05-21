@@ -287,11 +287,25 @@ function verificarSenhaAdmin() {
   const senha = document.getElementById("senha-admin").value;
   if (senha === "donaLurdes123") {
     document.getElementById("popup-login").style.display = "none";
-    document.getElementById("menu-admin").classList.add("ativo");
+    document.getElementById("popup-admin").style.display = "flex";
   } else {
     alert("Senha incorreta.");
   }
 }
+
+function fecharPopupAdmin() {
+  document.getElementById("popup-admin").style.display = "none";
+}
+
+// Fechar pop-up admin ao clicar fora
+window.addEventListener("click", (e) => {
+  const adminPopup = document.getElementById("popup-admin");
+  const content = adminPopup?.querySelector(".popup-content");
+
+  if (e.target === adminPopup) {
+    fecharPopupAdmin();
+  }
+});
 
 // Fecha pop-up ao clicar fora dele
 window.addEventListener("click", (e) => {
