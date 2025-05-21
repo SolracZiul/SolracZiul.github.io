@@ -294,7 +294,8 @@ function verificarSenhaAdmin() {
 }
 
 function fecharPopupAdmin() {
-  document.getElementById("popup-admin").style.display = "none";
+  const popup = document.getElementById("popup-admin");
+  if (popup) popup.style.display = "none";
 }
 
 // Fechar pop-up admin ao clicar fora
