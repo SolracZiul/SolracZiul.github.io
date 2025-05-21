@@ -325,10 +325,13 @@ window.addEventListener("click", (e) => {
 });
 
 function abrirGerenciarProdutos() {
-  alert("Abrindo Gerenciamento de Produtos (em desenvolvimento).");
+  fecharPopupAdmin(); // fecha o menu antes de abrir
+  document.getElementById("popup-gerenciar").style.display = "flex";
+  atualizarListaProdutos();
 }
 
 function abrirHistoricoPedidos() {
+  fecharPopupAdmin(); // fecha o menu antes de abrir
   alert("Abrindo Histórico de Pedidos (em desenvolvimento).");
 }
 
