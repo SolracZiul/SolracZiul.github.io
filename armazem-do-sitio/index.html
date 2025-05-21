@@ -31,9 +31,14 @@
   <!-- Engrenagem de administração (acesso restrito) -->
   <div id="area-admin">
     <button id="botao-admin" onclick="solicitarSenhaAdmin()" aria-label="Administração">⚙️</button>
-    <div id="menu-admin" class="popup-admin">
-      <button onclick="abrirGerenciarProdutos()">Gerenciar Produtos</button>
-      <button onclick="abrirHistoricoPedidos()">Histórico de Pedidos</button>
+    <!-- Pop-up com opções administrativas -->
+    <div id="popup-admin" class="popup">
+      <div class="popup-content" style="max-width: 350px;">
+        <h2>Menu Administrativo</h2>
+        <button onclick="abrirGerenciarProdutos()">Gerenciar Produtos</button>
+        <button onclick="abrirHistoricoPedidos()">Histórico de Pedidos</button>
+        <button onclick="fecharPopupAdmin()">Fechar</button>
+      </div>
     </div>
   </div>
 
