@@ -269,4 +269,36 @@ window.addEventListener("click", (e) => {
   }
 });
 
+function solicitarSenhaAdmin() {
+  const senha = prompt("Digite a senha de acesso:");
+  if (senha === "donaLurdes123") {
+    document.getElementById("menu-admin").style.display = "flex";
+  } else if (senha !== null) {
+    alert("Senha incorreta.");
+  }
+}
+
+function abrirGerenciarProdutos() {
+  alert("Abrindo Gerenciamento de Produtos (em desenvolvimento).");
+}
+
+function abrirHistoricoPedidos() {
+  alert("Abrindo Histórico de Pedidos (em desenvolvimento).");
+}
+
+// Fecha menu admin ao clicar fora
+window.addEventListener("click", (e) => {
+  const menu = document.getElementById("menu-admin");
+  const engrenagem = document.getElementById("botao-admin");
+
+  if (
+    menu.style.display === "flex" &&
+    !menu.contains(e.target) &&
+    e.target !== engrenagem
+  ) {
+    menu.style.display = "none";
+  }
+});
+
+
 
