@@ -332,5 +332,59 @@ window.addEventListener("click", (e) => {
   }
 });
 
+let produtosGerenciados = [];  // lista simulada
+
+function abrirGerenciarProdutos() {
+  document.getElementById("popup-gerenciar").style.display = "flex";
+  atualizarListaProdutos();
+}
+
+function fecharGerenciarProdutos() {
+  document.getElementById("popup-gerenciar").style.display = "none";
+}
+
+function atualizarListaProdutos() {
+  const lista = document.getElementById("lista-produtos");
+  lista.innerHTML = "";
+
+  produtosGerenciados.forEach((p, i) => {
+    lista.innerHTML += `
+      <div class="item-produto">
+        <span>${p.nome} - R$ ${p.preco.toFixed(2)} - ${p.categoria}</span>
+        <button onclick="excluirProduto(${i})">Excluir</button>
+      </div>
+    `;
+  });
+}
+
+document.getElementById("form-produto").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nome = document.getElementById("nome-produto").value;
+  const preco = parseFloat(document.getElementById("preco-produto").value);
+  const imagem = document.getElementById("imagem-produto").value;
+  const categoria = document.getElementById("categoria-produto").value;
+  const unidades = document.getElementById("unidades-produto").value.split(",").map(u => u.trim());
+
+  produtosGerenciados.push({
+    nome,
+    preco,
+    imagem,
+    categoria,
+    unidadePadrao: unidades[0],
+    opcoesUnidade: unidades
+  });
+
+  document.getElementById("form-produto").reset();
+  atualizarListaProdutos();
+});
+
+function excluirProduto(index) {
+  if (confirm("Tem certeza que deseja excluir este produto?")) {
+    produtosGerenciados.splice(index, 1);
+    atualizarListaProdutos();
+  }
+}
+
 
 
