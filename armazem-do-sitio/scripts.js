@@ -237,7 +237,7 @@ function enviarPedido() {
   });
 
   const total = carrinho.reduce((s, i) => s + i.preco * i.quantidade, 0);
-  msg += `\nTotal: R$ ${total.toFixed(2)}\n\n`;
+  msg += `\n*Total:* R$ ${total.toFixed(2)}\n\n`;
 
   msg += `*Cliente:*\nNome: ${nome}\nCPF: ${cpf}\nPagamento: ${pagamento}\n`;
 
