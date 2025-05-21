@@ -366,3 +366,8 @@ main {
   padding: 5px 8px;
   cursor: pointer;
 }
+
+.popup-admin.ativo {
+  display: flex;
+}
+
