@@ -88,6 +88,18 @@
     <p>&copy; 2025 Armazém do Sítio</p>
   </footer>
 
+  <!-- Pop-up de login da Dona Lurdes -->
+  <div id="popup-login" class="popup">
+    <div class="popup-content" style="max-width: 350px;">
+      <h2>Acesso Administrativo</h2>
+      <input type="password" id="senha-admin" placeholder="Digite a senha" />
+      <div class="botoes-carrinho">
+        <button onclick="verificarSenhaAdmin()">Entrar</button>
+        <button onclick="fecharPopupLogin()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
   <div id="popup-produto" class="popup">
     <div class="popup-content">
       <h2 id="popup-nome"></h2>
