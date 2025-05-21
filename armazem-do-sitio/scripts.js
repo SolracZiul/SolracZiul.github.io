@@ -310,9 +310,27 @@ window.addEventListener("click", (e) => {
   }
 });
 
+function abrirGerenciarProdutos() {
+  alert("Abrindo Gerenciamento de Produtos (em desenvolvimento).");
+}
+
 function abrirHistoricoPedidos() {
   alert("Abrindo Histórico de Pedidos (em desenvolvimento).");
 }
+
+// Fecha menu admin ao clicar fora
+window.addEventListener("click", (e) => {
+  const menu = document.getElementById("menu-admin");
+  const engrenagem = document.getElementById("botao-admin");
+
+  if (
+    menu.style.display === "flex" &&
+    !menu.contains(e.target) &&
+    e.target !== engrenagem
+  ) {
+    menu.style.display = "none";
+  }
+});
 
 let produtosGerenciados = [];  // lista simulada
 

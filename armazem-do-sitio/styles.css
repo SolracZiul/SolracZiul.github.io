@@ -279,7 +279,26 @@ main {
   z-index: 1001;
 }
 
-.menu-admin {
+#botao-admin {
+  background: #f2c14e;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.3);
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#botao-admin:hover {
+  background: #e0ac32;
+}
+
+.popup-admin {
   display: none;
   position: absolute;
   top: 60px;
@@ -293,7 +312,7 @@ main {
   z-index: 1002;
 }
 
-.menu-admin button {
+.popup-admin button {
   background: #f2c14e;
   border: none;
   border-radius: 8px;
@@ -303,7 +322,7 @@ main {
   width: 100%;
 }
 
-.menu-admin button:hover {
+.popup-admin button:hover {
   background: #e0ac32;
 }
 
@@ -346,8 +365,4 @@ main {
   border-radius: 6px;
   padding: 5px 8px;
   cursor: pointer;
-}
-
-#menu-admin {
-  display: none;
 }
