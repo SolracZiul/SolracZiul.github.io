@@ -310,10 +310,6 @@ window.addEventListener("click", (e) => {
   }
 });
 
-function abrirGerenciarProdutos() {
-  alert("Abrindo Gerenciamento de Produtos (em desenvolvimento).");
-}
-
 function abrirHistoricoPedidos() {
   alert("Abrindo Histórico de Pedidos (em desenvolvimento).");
 }
