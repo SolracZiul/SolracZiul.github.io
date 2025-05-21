@@ -325,3 +325,14 @@ main {
 .popup-admin button:hover {
   background: #e0ac32;
 }
+
+/* Pop-up de login já usa .popup e .popup-content existentes */
+
+#popup-login input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 1rem;
+  margin: 10px 0;
+}
