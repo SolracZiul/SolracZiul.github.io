@@ -28,6 +28,15 @@
       >0</span>
   </button>
 
+  <!-- Engrenagem de administração (acesso restrito) -->
+  <div id="area-admin">
+    <button id="botao-admin" onclick="solicitarSenhaAdmin()" aria-label="Administração">⚙️</button>
+    <div id="menu-admin" class="popup-admin">
+      <button onclick="abrirGerenciarProdutos()">Gerenciar Produtos</button>
+      <button onclick="abrirHistoricoPedidos()">Histórico de Pedidos</button>
+    </div>
+  </div>
+
   <main>
     <div class="grade-produtos" id="produtos"></div>
   </main>
