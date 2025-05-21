@@ -366,3 +366,7 @@ main {
   padding: 5px 8px;
   cursor: pointer;
 }
+
+#menu-admin {
+  display: none;
+}
