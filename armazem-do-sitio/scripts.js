@@ -269,14 +269,46 @@ window.addEventListener("click", (e) => {
   }
 });
 
+function toggleMenuAdmin() {
+  const menu = document.getElementById("menu-admin");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
 function solicitarSenhaAdmin() {
-  const senha = prompt("Digite a senha de acesso:");
+  document.getElementById("senha-admin").value = "";
+  document.getElementById("popup-login").style.display = "flex";
+}
+
+function fecharPopupLogin() {
+  document.getElementById("popup-login").style.display = "none";
+}
+
+function verificarSenhaAdmin() {
+  const senha = document.getElementById("senha-admin").value;
   if (senha === "donaLurdes123") {
+    document.getElementById("popup-login").style.display = "none";
     document.getElementById("menu-admin").style.display = "flex";
-  } else if (senha !== null) {
+  } else {
     alert("Senha incorreta.");
   }
 }
+
+// Fecha pop-up ao clicar fora dele
+window.addEventListener("click", (e) => {
+  const loginPopup = document.getElementById("popup-login");
+  const content = loginPopup.querySelector(".popup-content");
+  if (e.target === loginPopup) fecharPopupLogin();
+
+  const menu = document.getElementById("menu-admin");
+  const engrenagem = document.getElementById("botao-admin");
+  if (
+    menu.style.display === "flex" &&
+    !menu.contains(e.target) &&
+    e.target !== engrenagem
+  ) {
+    menu.style.display = "none";
+  }
+});
 
 function abrirGerenciarProdutos() {
   alert("Abrindo Gerenciamento de Produtos (em desenvolvimento).");
