@@ -37,6 +37,38 @@
     </div>
   </div>
 
+  <!-- Pop-up de Gerenciamento de Produtos -->
+  <div id="popup-gerenciar" class="popup">
+    <div class="popup-content" style="max-width: 500px;">
+      <h2>Gerenciar Produtos</h2>
+  
+      <form id="form-produto">
+        <input type="text" id="nome-produto" placeholder="Nome do produto" required />
+        <input type="number" id="preco-produto" placeholder="Preço (R$)" step="0.01" required />
+        <input type="text" id="imagem-produto" placeholder="URL da imagem" required />
+  
+        <select id="categoria-produto" required>
+          <option value="">Selecione a categoria</option>
+          <option value="ofertas">Ofertas</option>
+          <option value="frutas">Frutas</option>
+          <option value="legumes">Legumes</option>
+          <option value="verduras">Verduras</option>
+        </select>
+  
+        <input type="text" id="unidades-produto" placeholder="Unidades (ex: kg, unidade)" required />
+  
+        <div class="botoes-carrinho">
+          <button type="submit">Salvar Produto</button>
+          <button type="button" onclick="fecharGerenciarProdutos()">Fechar</button>
+        </div>
+      </form>
+  
+      <hr style="margin: 20px 0;">
+  
+      <div id="lista-produtos"></div>
+    </div>
+  </div>
+
   <main>
     <div class="grade-produtos" id="produtos"></div>
   </main>
