@@ -287,7 +287,7 @@ function verificarSenhaAdmin() {
   const senha = document.getElementById("senha-admin").value;
   if (senha === "donaLurdes123") {
     document.getElementById("popup-login").style.display = "none";
-    document.getElementById("menu-admin").style.display = "flex";
+    document.getElementById("#menu-admin").style.display = "flex";
   } else {
     alert("Senha incorreta.");
   }
